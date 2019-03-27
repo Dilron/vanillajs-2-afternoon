@@ -84,6 +84,31 @@
 </body>
 
 <script>
+    let characters = []
+    let list = document.getElementById('list')
+
+    // fetch('https://swapi.co/api/').then(function(reponse){
+    //     return response.json()
+    // }).then(function(response){
+    //     return characters.push(response.results)
+    // })
+    fetch('https://www.swapi.co/api/people')
+    .then(response => response.json())
+    .then(response => {
+        characters.push(...response.results)
+        render()
+    })
+    
+    
+    function render() {
+          const html = characters.map(val => `<li>${val.name}</li>`).join('')
+        }
+
+    // function fetchTest(){
+    // let test = fetch('https://swapi.co/api/')
+    // console.log(test)
+    // }
+        
 </script>
 
 </html>
